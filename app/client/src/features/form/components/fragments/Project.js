@@ -35,21 +35,44 @@ function Project({ keywords, index, addKeyword, removeKeyword }: Props) {
       {index > 0 ? <Divider /> : null}
       <LabeledInput
         name={`projects[${index}].name`}
-        label="Project Name"
-        placeholder="Piper Chat"
+        label="项目名称"
+        placeholder="Piper聊天"
       />
       <LabeledInput
         name={`projects[${index}].description`}
-        label="Project Description"
-        placeholder="A video chat app with great picture quality."
+        label="项目描述"
+        placeholder="一个画面质量很好的视频聊天工具。"
       />
       <LabeledInput
         name={`projects[${index}].url`}
-        label="Link to Project"
+        label="项目链接"
         placeholder="http://piperchat.com"
       />
-      <Label>Tools Used</Label>
-      {keywords.map((_, i) => (
+      <Label>使用的工具</Label>
+      {(!keywords || keywords.length === 0) ? (
+        <div>
+          <MiniInput
+            name={`projects[${index}].keywords[]`}
+            placeholder="Java"
+            component="input"
+          />
+          <ButtonRow>
+            <RoundButton inverted onClick={() => addKeyword(index)}>
+              <Icon type="add" />
+            </RoundButton>
+            <RoundButton
+              inverted
+              disabled={!keywords || keywords.length === 1}
+              onClick={() => removeKeyword(index)}
+            >
+              <Icon type="remove" />
+            </RoundButton>
+          </ButtonRow>
+        
+        </div>
+      ) 
+      : 
+      keywords.map((_, i) => (
         <div key={i}>
           <MiniInput
             name={`projects[${index}].keywords[${i}]`}

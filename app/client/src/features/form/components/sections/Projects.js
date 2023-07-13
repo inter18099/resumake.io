@@ -51,14 +51,14 @@ function Projects({
       ))}
       <div>
         <Button onClick={addProject} type="button">
-          Add Project
+          添加项目
         </Button>
         <Button
           onClick={removeProject}
           disabled={projects.length === 1}
           type="button"
         >
-          Remove Project
+          删除项目
         </Button>
       </div>
     </Section>

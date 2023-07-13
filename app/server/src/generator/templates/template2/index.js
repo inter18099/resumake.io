@@ -66,7 +66,7 @@ const generator: Template2Generator = {
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %     Education
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \\cvsection{${heading || 'Education'}}
+      \\cvsection{${heading || '教育经历'}}
       \\begin{cventries}
       ${education.map(school => {
         const {
@@ -82,7 +82,7 @@ const generator: Template2Generator = {
         let degreeLine = ''
 
         if (studyType && area) {
-          degreeLine = `${studyType} in ${area}`
+          degreeLine = `${studyType} \\quad ${area}`
         } else if (studyType || area) {
           degreeLine = studyType || area
         }
@@ -121,7 +121,7 @@ const generator: Template2Generator = {
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       %     Experience
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-      \\cvsection{${heading || 'Experience'}}
+      \\cvsection{${heading || '工作经历'}}
       \\begin{cventries}
       ${work.map(job => {
         const {
@@ -171,7 +171,7 @@ const generator: Template2Generator = {
     }
 
     return source`
-      \\cvsection{${heading || 'Skills'}}
+      \\cvsection{${heading || '技能'}}
       \\begin{cventries}
       \\cventry
       {}
@@ -199,7 +199,7 @@ const generator: Template2Generator = {
     }
 
     return source`
-      \\cvsection{${heading || 'Projects'}}
+      \\cvsection{${heading || '项目经验'}}
       \\begin{cventries}
       ${projects.map(project => {
         const { name, description, keywords = [], url } = project
@@ -225,7 +225,7 @@ const generator: Template2Generator = {
     }
 
     return source`
-      \\cvsection{${heading || 'Awards'}}
+      \\cvsection{${heading || '奖项'}}
       \\begin{cvhonors}
       ${awards.map(award => {
         const { title, summary, date, awarder } = award
@@ -265,6 +265,7 @@ const generator: Template2Generator = {
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%% Themes: Awesome-CV
     \\documentclass[]{awesome-cv}
+    \\usepackage[UTF8]{ctex}
     \\usepackage{textcomp}
     %%% Override a directory location for fonts(default: 'fonts/')
     \\fontdir[fonts/]

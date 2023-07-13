@@ -154,7 +154,7 @@
 
 % Awesome section color
 \newcounter{colorCounter}
-\def\@sectioncolor#1#2#3{%
+\def\@sectioncolor#1{%
   {%
     \color{%
       \ifcase\value{colorCounter}%
@@ -164,7 +164,7 @@
         awesome\or%
         awesome\else%
         awesome\fi%
-    } #1#2#3%
+    } #1%
   }%
   \stepcounter{colorCounter}%
 }
